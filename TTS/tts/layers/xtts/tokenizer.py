@@ -3,7 +3,7 @@ import re
 import textwrap
 from functools import cached_property
 
-import pypinyin
+# import pypinyin
 import torch
 # from hangul_romanize import Transliter
 # from hangul_romanize.rule import academic
@@ -570,9 +570,10 @@ def basic_cleaners(text):
 
 
 def chinese_transliterate(text):
-    return "".join(
-        [p[0] for p in pypinyin.pinyin(text, style=pypinyin.Style.TONE3, heteronym=False, neutral_tone_with_five=True)]
-    )
+    return text
+    # return "".join(
+        # [p[0] for p in pypinyin.pinyin(text, style=pypinyin.Style.TONE3, heteronym=False, neutral_tone_with_five=True)]
+    # )
 
 
 def japanese_cleaners(text, katsu):
