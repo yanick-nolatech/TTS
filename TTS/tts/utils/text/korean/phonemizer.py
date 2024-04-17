@@ -1,4 +1,4 @@
-from jamo import hangul_to_jamo
+# from jamo import hangul_to_jamo
 
 from TTS.tts.utils.text.korean.korean import normalize
 
@@ -18,9 +18,9 @@ def korean_text_to_phonemes(text, character: str = "hangeul") -> str:
     """
     global g2p  # pylint: disable=global-statement
     if g2p is None:
-        from g2pkk import G2p
-
-        g2p = G2p()
+        # from g2pkk import G2p
+        # g2p = G2p()
+        pass
 
     if character == "english":
         from anyascii import anyascii
@@ -32,5 +32,5 @@ def korean_text_to_phonemes(text, character: str = "hangeul") -> str:
 
     text = normalize(text)
     text = g2p(text)
-    text = list(hangul_to_jamo(text))  # '하늘' --> ['ᄒ', 'ᅡ', 'ᄂ', 'ᅳ', 'ᆯ']
+    # text = list(hangul_to_jamo(text))  # '하늘' --> ['ᄒ', 'ᅡ', 'ᄂ', 'ᅳ', 'ᆯ']
     return "".join(text)

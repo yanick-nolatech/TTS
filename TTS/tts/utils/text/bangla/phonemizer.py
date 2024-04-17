@@ -1,11 +1,11 @@
 import re
 
-import bangla
-from bnnumerizer import numerize
-from bnunicodenormalizer import Normalizer
+# import bangla
+# from bnnumerizer import numerize
+# from bnunicodenormalizer import Normalizer
 
 # initialize
-bnorm = Normalizer()
+bnorm = None
 
 
 attribution_dict = {
@@ -79,8 +79,8 @@ def collapse_whitespace(text):
 def bangla_text_to_phonemes(text: str) -> str:
     # english numbers to bangla conversion
     res = re.search("[0-9]", text)
-    if res is not None:
-        text = bangla.convert_english_digit_to_bangla_digit(text)
+    # if res is not None:
+        # text = bangla.convert_english_digit_to_bangla_digit(text)
 
     # replace ':' in between two bangla numbers with ' এর '
     pattern = r"[০, ১, ২, ৩, ৪, ৫, ৬, ৭, ৮, ৯]:[০, ১, ২, ৩, ৪, ৫, ৬, ৭, ৮, ৯]"
@@ -90,7 +90,7 @@ def bangla_text_to_phonemes(text: str) -> str:
         text = text.replace(m, r)
 
     # numerize text
-    text = numerize(text)
+    # text = numerize(text)
 
     # tag sections
     text = tag_text(text)
